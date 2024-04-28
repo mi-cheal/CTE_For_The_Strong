@@ -1,7 +1,2 @@
-# CTE771S Development of a Mini Compiler System Using Java Group Project
-
-Michael Vapopya Ndivayele Jr. 222059079
-Stephanus Sylvanus	22298309
-Erastus Shindinge	222044448
-Uuyuni Laura Conceicao	221027998
-Ache Victor	222062568
+Write a Java program that will go through the following stages of compiler to translate the
+above program (iteratively) — all at once.
