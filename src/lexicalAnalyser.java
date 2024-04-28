@@ -27,6 +27,11 @@ public class lexicalAnalyser {
     }
 
     private static void analyzeLine(String line) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'analyzeLine'");
+    }
+
+    private static void analyzeLine(SymbolType line) {
         List<Token> tokens = tokenize(line);
 
         if (tokens == null)
@@ -57,7 +62,12 @@ public class lexicalAnalyser {
         System.out.println("\nTotal number of Tokens: " + tokens.size());
     }
 
-    private static List<Token> tokenize(String line) 
+    private static List<Token> tokenize(SymbolType line) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'tokenize'");
+    }
+
+    static List<Token> tokenize(CharSequence line) 
     {  
         
         List<Token> tokens = new ArrayList<>();
