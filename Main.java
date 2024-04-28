@@ -1,43 +1,45 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        // Lexical Analysis (Scanner)
-        lexicalAnalysis();
+        // Input program
+        String program = "START\n" +
+                "INTEGER M, N, K, P, R, H, |, g, k, m\n" +
+                "READ M, N, K\n" +
+                "ASSIN =G MN -/ K\n" +
+                "READ g, H, |, m\n" +
+                "P = g/H-l+m*N/k\n" +
+                "R= M+N/K\n" +
+                "WRITE P\n" +
+                "STOP";
 
-        // Syntax Analysis (Parser)
-        syntaxAnalysis();
+        // Lexical analysis
+        ArrayList<String> tokens = LexicalAnalysis.tokenize(program);
 
-        // Semantic Analysis (Syntactic Analysis)
-        semanticAnalysis();
+        // Syntax analysis
+        boolean isSyntaxValid = Parser.checkSyntax(tokens);
+        if (!isSyntaxValid) {
+            System.out.println("Syntax error!");
+            return;
+        }
 
-    }
+        // Semantic analysis
+        boolean isSemanticValid = SemanticAnalyzer.checkSemantics(tokens);
+        if (!isSemanticValid) {
+            System.out.println("Semantic error!");
+            return;
+        }
 
-    public static void lexicalAnalysis() {
-        // Call Lexical Analyzer
-        LexicalAnalyzer.main(null);
-    }
+        // Intermediate code generation
+        String intermediateCode = IntermediateCodeGenerator.generateIntermediateCode(tokens);
+        System.out.println("Intermediate code: " + intermediateCode);
 
-    public static void syntaxAnalysis() {
-        // Call Syntax Analyzer
-        SyntaxAnalyzer.main(null);
-    }
+        // Code generation
+        String machineCode = CodeGenerator.generateMachineCode(intermediateCode);
+        System.out.println("Machine code: " + machineCode);
 
-    public static void semanticAnalysis() {
-        // Call Semantic Analyzer
-        SemanticAnalyzer.main(null);
-    }
-
-    public static void intermediateCodeGeneration() {
-        // Call Intermediate Code Generator
-        IntermediateCodeGenerator.main(null);
-    }
-
-    public static void codeGeneration() {
-        // Call Code Generator
-        CodeGenerator.main(null);
-    }
-
-    public static void codeOptimization() {
-        // Call Code Optimizer
-        CodeOptimizer.main(null);
+        // Code optimization
+        String optimizedCode = CodeOptimizer.optimizeCode(machineCode);
+        System.out.println("Optimized code: " + optimizedCode);
     }
 }
